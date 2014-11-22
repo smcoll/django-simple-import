@@ -1,0 +1,11 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block title %}{% block simple_import_page_title %}{% endblock %} | {% trans 'Django site admin' %}{% endblock %}
+
+{% block content %}
+  <h1>{% block simple_import_title %}{% endblock %}</h1>
+  <div id="content_main">
+    {% block simple_import_form %}{% endblock %}
+  </div>
+{% endblock %}

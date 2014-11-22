@@ -26,6 +26,15 @@ Project is now stable and feature complete. Of course it's always a good idea to
 - Undo (create only) imports
 - Security checks if user has correct permissions (partially implemented)
 
+## Test Drive
+
+The app contains a sample project.
+
+1. Git clone the repo and enter the `simple_import/sample_project` directory
+1. Install the sample project requirements (preferably into a virtualenv): `$ pip install -r requirements.txt`
+1. Initialize the database: `$ python manage.py syncdb`
+1. Start the server: `$ python manage.py runserver`
+
 ## Install
 
 1. pip install django-simple-import
@@ -59,7 +68,9 @@ Go to /simple_import/start_import/ or use the admin interface.
 
 The screenshots have a django-grappelli like theme. The base templates have no style and are very basic. 
 See an example of customization [here](https://github.com/burke-software/django-sis/tree/master/templates/simple_import).
-It is often sufficient to simply override `simple_import/templates/base.html`.
+
+It is often sufficient to simply override `simple_import/templates/base.html`.  See the sample project for an 
+implementation which leverages the django.contrib.admin theme.
 
 There is also a log of import records. Check out /admin/simple_import/.
 
