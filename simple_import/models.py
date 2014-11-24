@@ -154,11 +154,13 @@ class ImportLog(models.Model):
                     break
         elif file_ext == "csv":
             import csv
-            reader = csv.reader(self.import_file)
-            for row in reader:
-                data += [row]
-                if only_header:
-                    break
+            # open with universal newline support
+            with open(self.import_file.path, 'rU') as f:
+                reader = csv.reader(f)
+                for row in reader:
+                    data += [row]
+                    if only_header:
+                        break
         elif file_ext == "lsx":
             from openpyxl.reader.excel import load_workbook
             # load_workbook actually accepts a file-like object for the filename param
