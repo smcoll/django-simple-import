@@ -294,6 +294,8 @@ def set_field_from_cell(import_log, new_object, header_row_field_name, cell):
             related_object = related_model.objects.get(**{related_field_name:cell})
             setattr(new_object, header_row_field_name, related_object)
         elif field.choices and getattr(settings, 'SIMPLE_IMPORT_LAZY_CHOICES', True):
+            # trim any whitespace from the value
+            cell = cell.strip()
             # Prefer database values over choices lookup
             database_values, verbose_values = zip(*field.choices)
             if cell in database_values:
